@@ -17,6 +17,11 @@ const App = () => {
         return null
     }
 
+    const handleCopyText = () => {
+      setTextToCopy(transcript)
+      setCopied();
+    }
+
     return (
         <>
             <div className="container">
@@ -25,13 +30,13 @@ const App = () => {
                 <p>A React hook that converts speech from the microphone to text and makes it available to your React
                     components.</p>
 
-                <div className="main-content" onClick={() =>  setTextToCopy(transcript)}>
+                <div className="main-content">
                     {transcript}
                 </div>
 
                 <div className="btn-style">
 
-                    <button onClick={setCopied}>
+                    <button onClick={handleCopyText}>
                         {isCopied ? 'Copied!' : 'Copy to clipboard'}
                     </button>
                     <button onClick={startListening}>Start Listening</button>
